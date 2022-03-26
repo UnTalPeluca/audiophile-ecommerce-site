@@ -1,9 +1,9 @@
 <template>
     <header 
-        class="header py-8 border-b-2 border-white border-opacity-10 absolute top-0 w-full"
-        :style="{ backgroundColor: transparent ? 'none' : 'black', border: transparent ? '' : 'none' }"
+        class="header absolute top-0 w-full border-b-2 border-white border-opacity-10 md:border-0"
+        :style="{ backgroundColor: transparent ? 'none' : 'black' }"
     >
-        <div class="header-container max-w-sm md:max-w-md lg:max-w-lg mx-auto w-11/12 flex justify-between items-center">
+        <div class="header-container md:border-b-2 border-white border-opacity-10 py-8 max-w-sm md:max-w-md lg:max-w-lg mx-auto w-11/12 flex justify-between items-center">
             <nav class="header__navbar">
                 <img src="~/assets/shared/tablet/icon-hamburger.svg" alt="" class="header__hamburger">
                 <ul class="navbar__list">

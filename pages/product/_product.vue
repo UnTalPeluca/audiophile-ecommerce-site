@@ -1,31 +1,31 @@
 <template>
-    <div class="product-page gap-6 pt-28 max-w-sm md:max-w-md lg:max-w-lg w-11/12 mx-auto">
+    <div class="product-page gap-6 pt-28 max-w-sm md:max-w-md lg:max-w-lg w-11/12 mx-auto lg:pt-40 lg:gap-12">
         <NuxtLink 
             :to="'/category/' + product.category"
             class="text-black text-opacity-50 mr-auto font-medium"
         >Go Back</NuxtLink>
         <div class="product-page-container flex flex-col gap-24">
-            <section class="product flex flex-col gap-20">
+            <section class="product flex flex-col gap-20 md:gap-28">
                 <div class="product__summary flex flex-col gap-6 md:flex-row">
-                    <picture class="rounded">
-                        <source :srcset="require('~/static/products/' + product.image.desktop)" media="(min-width: 900px)">
+                    <picture class="rounded lg:w-1/2">
+                        <source :srcset="require('~/static/products/' + product.image.desktop)" media="(min-width: 768px)">
                         <source :srcset="require('~/static/products/' + product.image.tablet)" media="(min-width: 480px)">
                         <source :srcset="require('~/static/products/' + product.image.mobile)">
                         <img :src="require('~/static/products/' + product.image.mobile)" alt="">
                     </picture>
-                    <div class="summary__content flex flex-col gap-6 md:max-w-sm md:justify-center ">
+                    <div class="summary__content flex flex-col gap-6 md:max-w-sm md:justify-center lg:w-1/2 lg:max-w-auto lg:mx-auto">
                         <small v-if="product.new" class="card__new new-product text-orange text-opacity-50 text-xs font-normal uppercase">NEW PRODUCT</small>
-                        <h1 class="product__title text-2xl font-bold uppercase ">{{ product.name }}</h1>
+                        <h1 class="product__title text-2xl font-bold uppercase lg:text-5xl">{{ product.name }}</h1>
                         <p class="text-black text-opacity-50 font-medium text-md">{{ product.description }}</p>
-                        <b class="text-black text-lg">$ {{ product.price.toLocaleString() }}</b>
+                        <b class="text-black text-lg tracking-wider">{{ price }}</b>
                         <div class="product__cart-buttons flex gap-4">
                             <CartAmountButton />
                             <CartAddButton />
                         </div>
                     </div>
                 </div>
-                <div class="product__description flex flex-col gap-20">
-                    <div class="description__features flex flex-col gap-6">
+                <div class="product__description flex flex-col gap-20 md:gap-28">
+                    <div class="description__features flex flex-col gap-6 md:gap-10">
                         <h2 class="uppercase text-xl md:text-3xl font-bold tracking-wide">features</h2>
                         <p class="text-black text-opacity-50 font-medium text-md">{{ product.features }}</p>
                     </div>
@@ -48,7 +48,7 @@
                         :style="{ order: orderSchema[index] }"
                         :class="gridSchema[orderSchema[index]]"
                     >
-                        <source :srcset="require('~/static/products/' + image.desktop)" media="(min-width: 900px)">
+                        <source :srcset="require('~/static/products/' + image.desktop)" media="(min-width: 768px)">
                         <source :srcset="require('~/static/products/' + image.tablet)" media="(min-width: 480px)">
                         <source :srcset="require('~/static/products/' + image.mobile)">
                         <img :src="require('~/static/products/' + image.mobile)" alt="" class="rounded-lg w-full">
@@ -79,6 +79,17 @@ export default {
         return {
             product
         }
+    },
+    computed: {
+        price() {
+            const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                maximumFractionDigits: 0, 
+                minimumFractionDigits: 0, 
+            })
+            return formatter.format(this.product.price)
+        }
     }
 }
 </script>
@@ -100,5 +111,10 @@ export default {
 .img-small1 { grid-area: img-small1; }
 .img-small2 { grid-area: img-small2; }
 .img-big { grid-area: img-big; }
+}
+@media screen and (min-width: 768px) {
+    .product__summary picture {
+        max-height: 100%;
+    }
 }
 </style>

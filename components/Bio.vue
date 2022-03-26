@@ -1,7 +1,7 @@
 <template>
     <article class="bio max-w-sm md:max-w-md lg:max-w-lg w-11/12 text-center flex flex-col items-center mx-auto py-28 gap-y-8 lg:grid">
         <picture class="bio__image">
-            <source srcset="@/assets/shared/desktop/image-best-gear.jpg" media="(min-width: 900px)">
+            <source srcset="@/assets/shared/desktop/image-best-gear.jpg" media="(min-width: 768px)">
             <source srcset="@/assets/shared/tablet/image-best-gear.jpg" media="(min-width: 480px)">
             <source srcset="@/assets/shared/mobile/image-best-gear.jpg">
             <img class="rounded-lg w-full" src="@/assets/shared/mobile/image-best-gear.jpg" alt="Bio image">

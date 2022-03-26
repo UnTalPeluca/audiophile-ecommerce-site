@@ -54,7 +54,7 @@
 .footer__description { grid-area: description; }
 .footer__copyright { grid-area: copyright; }
 .footer__rrss { grid-area: rrss; }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
     .footer__content {
         grid-template-columns: 1fr 1fr; 
         grid-template-rows: auto auto auto; 

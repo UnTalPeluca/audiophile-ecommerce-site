@@ -2,7 +2,7 @@ module.exports = {
     theme: {
         screens: {
             'md': '480px',
-            'lg': '900px'
+            'lg': '768px'
         },
         maxWidth: {
             'sm': '327px',
