@@ -31,7 +31,15 @@ module.exports = {
             '6xl': ['3.5rem', {
                 lineHeight: '58px'
             }],
-
+        },
+        extend: {
+            colors: {
+                'orange': '#D87D4A',
+                'light-orange': '#FBAF85'
+            },
+            spacing: {
+                '22': '5.5rem'
+            }
         }
     },
     plugins: [],

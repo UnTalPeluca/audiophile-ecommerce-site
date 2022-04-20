@@ -52,5 +52,10 @@ export default {
   // Server config
   server: {
     host: '0.0.0.0' // default: localhost
+  },
+  
+  // Loading Config
+  loading: {
+    color: '#D87D4A'
   }
 }
