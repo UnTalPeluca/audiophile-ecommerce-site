@@ -1,30 +1,32 @@
 <template>
     <div 
-        class="cart absolute top-28 left-1/2 transform -translate-x-2/4 w-full max-w-sm">
-        <div class="cart__content bg-white p-6 grid rounded-lg">
-            <b class="content__title tracking-widest">CART({{ getCartDetails.length }})</b>
-            <button @click="cleanCart()" class="content__remove-btn ml-auto underline text-gray-500 text-md hover:text-orange ">Remove all</button>
-            <div v-if="getCartDetails.length" class="content__items flex flex-col gap-6">
+        class="cart absolute right-0 top-20 w-screen max-w-sm">
+        <div class="cart__content bg-white w-sceen p-6 grid rounded-lg">
+            <b class="content__title tracking-widest">CART({{ cart.length }})</b>
+            <button v-if="cart.length" @click.prevent="cleanCart()" class="content__remove-btn ml-auto underline text-gray-500 text-md hover:text-orange">Remove all</button>
+            <div v-if="cart.length" class="content__items flex flex-col gap-6">
                 <div
-                    v-for="(item, index) in getCartDetails" :key="index"
+                    v-for="(item, index) in cart" :key="index"
                     class="item flex justify-between items-center"
                 >
                     <CartItemSummary v-if="item.data" :itemData="item.data"/>
                     <CartAmountButton v-if="item.data" v-model="item.amount" :slug="item.data.slug" :index="index"/>
                 </div>
             </div>
-            <div v-else class="content__items font-bold">Cart is empty</div>
             <div class="content__total flex items-center">
                 <p class="text-gray-500 text-base font-medium tracking-wider">TOTAL</p>
                 <b class="ml-auto text-lg">{{ totalPrice }}</b>
             </div>
-            <NuxtLink to="/checkout" class="checkout w-full p-4 uppercase mx-auto text-sm text-center text-white font-bold tracking-widest block bg-orange">CHECKOUT</NuxtLink>
+            <div @click="onClickCheckout()" class="checkout">
+                <NuxtLink v-if="cart.length" to="/checkout" class="w-full p-4 uppercase mx-auto text-sm text-center text-white font-bold tracking-widest block bg-orange hover:bg-light-orange">CHECKOUT</NuxtLink>
+                <div v-else class="disabled-checkout w-full p-4 uppercase mx-auto text-sm text-center text-white font-bold tracking-widest block bg-light-orange">Cart is empty</div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 import formatter from "~/utils/formatPrice"
 
 export default {
@@ -32,13 +34,11 @@ export default {
         formatter
     }),
     computed: {
-        ...mapGetters("cart", [
-            "getCartDetails",
-        ]),
+        ...mapGetters("cart", { cart: "getCartDetails" }),
         totalPrice() {
             let result = 0
-            if(this.getCartDetails[0]?.data?.price) {
-                this.getCartDetails.forEach( item => {
+            if(this.cart[0]?.data?.price) {
+                this.cart.forEach( item => {
                     result += item.data?.price * item?.amount
                 })
             }
@@ -46,8 +46,14 @@ export default {
         }
     },
     methods: {
+        ...mapMutations('layout', { cartVisibility: 'SET_CART_STATE'}),
         cleanCart() {
             this.$store.dispatch('cart/removeProductFromCart', { clean: true })
+        },
+        onClickCheckout(){
+            if(this.cart.length) {
+                this.cartVisibility(false)
+            }
         }
     }
 }

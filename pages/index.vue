@@ -42,7 +42,7 @@
         </article>
       </section>
     </div>
-    <Bio />
+    <Bio class="mb-24"/>
   </div>
 </template>
 

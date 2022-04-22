@@ -7,7 +7,8 @@ module.exports = {
         maxWidth: {
             'sm': '327px',
             'md': '689px',
-            'lg': '1110px'
+            'lg': '1110px',
+            '540': '540px'
         },
         fontSize: {
             'xs': '.75rem',
@@ -39,6 +40,9 @@ module.exports = {
             },
             spacing: {
                 '22': '5.5rem'
+            },
+            width: {
+                'input1/2': '49%'
             }
         }
     },

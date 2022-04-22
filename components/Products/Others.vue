@@ -29,11 +29,13 @@ export default {
     data:() => ({
         products: []
     }),
-    async fetch() {
-        await this.slugs.forEach(async (slug) => {
+    created() {
+        const localProducts = []
+        this.slugs.forEach(async (slug) => {
             const res = await firebase.fetchProductBySlug(slug)
-            this.products.push(res)
+            localProducts.push(res)
         })
-    }
+        this.products = localProducts
+    },
 }
 </script>

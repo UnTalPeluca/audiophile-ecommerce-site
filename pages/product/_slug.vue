@@ -1,8 +1,8 @@
 <template>
     <div class="product-page bg-gray-50 w-full">
         <div class="product-page__container gap-6 pt-28 max-w-sm md:max-w-md lg:max-w-lg w-11/12 mx-auto lg:pt-40 lg:gap-12">
-            <NuxtLink :to="'/category/' + product.category" class="text-black text-opacity-50 mr-auto font-medium">Go Back</NuxtLink>
-            <div class="product-page-container flex flex-col gap-24">
+            <NuxtLink :to="'/category/' + product.category" class="text-black text-opacity-50 mr-auto font-medium hover:text-orange">Go Back</NuxtLink>
+            <div class="product-page-container flex flex-col gap-24 mt-6">
                 <section class="product flex flex-col gap-20 md:gap-28">
                     <div class="product__summary flex flex-col gap-6 md:flex-row">
                         <picture class="rounded lg:w-1/2">
@@ -16,8 +16,10 @@
                             <p class="text-black text-opacity-50 font-medium text-md">{{ product.description }}</p>
                             <b class="text-black text-lg tracking-wider">{{ formatter.format(this.product.price) }}</b>
                             <div class="product__cart-buttons flex gap-4">
-                                <AmountButton v-model="amount" />
-                                <button @click="addProductToCart()" class="uppercase tracking-widest bg-orange text-white font-bold py-4 px-8 text-xs hover:bg-light-orange">add to cart</button>
+                                <ProductsAmountButton v-model="amount" />
+                                <div class="add-btn relative">
+                                    <button @click="addProductToCart()" class="uppercase tracking-widest bg-orange text-white font-bold py-4 px-8 text-xs hover:bg-light-orange">add to cart</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -55,7 +57,7 @@
                 <ProductsCategories class="mt-24"/>
             </div>
         </div>
-        <Bio />
+        <Bio class="my-24"/>
     </div>
 </template>
 <script>

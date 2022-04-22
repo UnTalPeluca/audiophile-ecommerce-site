@@ -1,6 +1,7 @@
 export const state = () => ({
     isMenuOpen: false,
     isCartOpen: false,
+    isOrderCompleted: false,
     headerTransparent: false
 })
 
@@ -11,4 +12,7 @@ export const mutations = {
     SET_CART_STATE(state, value) {
         state.isCartOpen = value
     },
+    SET_ORDER_COMPLETED_STATE(state, value) {
+        state.isOrderCompleted = value
+    }
 }

@@ -17,5 +17,4 @@ export const actions = {
             commit('SET_CATEGORIES', result)
         }
     },
-    
 }

@@ -1,5 +1,7 @@
 <template>
-    <div class="notification ">
-
-    </div>
+    <transition>
+        <div class="notifcation">
+            
+        </div>
+    </transition>
 </template>

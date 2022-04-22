@@ -1,11 +1,7 @@
 <template>
-    <div class="flex justify-between gap-4">
+    <div v-if="itemData" class="flex justify-between gap-4">
         <div class="item__image w-16">
-            <picture>
-                <source :srcset="require('~/static/products/' + itemData.image.desktop)" media="(min-width: 768px)">
-                <source :srcset="require('~/static/products/' + itemData.image.tablet)" media="(min-width: 480px)">
-                <img :src="require('~/static/products/' + itemData.image.mobile)" alt="" class="rounded-lg w-full">
-            </picture>
+            <img :src="require('~/static/products/' + itemData.image.mobile)" alt="" class="rounded-lg w-full">
         </div>
         <div class="item__details flex flex-col justify-center">
             <b class="title uppercase text-md">{{ itemData.nameCart }}</b>
@@ -22,6 +18,5 @@ export default {
     props: {
         itemData: {}
     },
-
 }
 </script>

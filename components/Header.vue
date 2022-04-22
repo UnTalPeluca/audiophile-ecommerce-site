@@ -10,7 +10,7 @@
                 <div
                     id="menu"
                     v-show="isMenuOpen" 
-                    class="navbar__categories-mobile focus:outline-none absolute w-screen bg-gray-50 left-0 pt-20 pb-8 top-22 rounded-b-lg lg:hidden"
+                    class="navbar__categories-mobile focus:outline-none absolute w-full bg-gray-50 left-0 pt-20 pb-8 top-22 rounded-b-lg lg:hidden"
                 >
                     <ProductsCategories class="mx-auto max-w-sm md:max-w-md lg:max-w-lg"/>
                 </div>
@@ -32,18 +32,27 @@
             <div class="header__logo md:mr-auto md:pl-8 lg:p-0 lg:order-1 lg:mr-0 lg:w-2/12">
                 <NuxtLink to="/"><img src="~/assets/shared/desktop/logo.svg" alt="" class="logo__img"></NuxtLink>
             </div>
-            <div class="header__cart lg:order-3 lg:w-2/12 lg:flex lg:justify-end">
-                <img @click="setCartState(!isCartOpen)" id="cartIcon" src="~/assets/shared/desktop/icon-cart.svg" alt="" class="cart__icon cursor-pointer">
-                <CartInteract
-                    id="cart"
-                    v-show="isCartOpen" 
-                />
-            </div>
+            
+                <div class="header__cart lg:order-3 lg:w-2/12 lg:flex lg:justify-end relative">
+                    <div class="cart__icon relative">
+                        <img @click="setCartState(!isCartOpen)" id="cartIcon" src="~/assets/shared/desktop/icon-cart.svg" alt="" class="cart__icon cursor-pointer">
+                        <client-only>
+                            <div v-if="getCartDetails.length" class="absolute bottom-2 left-4 rounded-full bg-orange w-4 h-4 text-center aling-center flex justify-center items-center text-white text-xs"><b>{{getCartDetails.length}}</b></div>
+                        </client-only>
+                    </div>
+                    <client-only>
+                        <CartInteract
+                            id="cart"
+                            v-show="isCartOpen" 
+                        />
+                    </client-only>
+                </div>
+            
         </div>
     </header>
 </template>
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapGetters } from 'vuex'
 
 export default {
     props: {
@@ -54,15 +63,10 @@ export default {
     },
     computed: {
         ...mapState('layout', ['isMenuOpen','isCartOpen']),
+        ...mapGetters('cart', ['getCartDetails']),
     },
     methods: {
-        ...mapMutations('layout', ['SET_MENU_STATE','SET_CART_STATE']),
-        setMenuState(value) {
-            this.SET_MENU_STATE(value)
-        },
-        setCartState(value) {
-            this.SET_CART_STATE(value)
-        }
+        ...mapMutations('layout', {setMenuState: 'SET_MENU_STATE', setCartState: 'SET_CART_STATE'}),
     },
     created() {
         if(process.client) {

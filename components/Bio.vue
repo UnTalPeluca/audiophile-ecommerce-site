@@ -1,5 +1,5 @@
 <template>
-    <article class="bio max-w-sm md:max-w-md lg:max-w-lg w-11/12 text-center flex flex-col items-center mx-auto py-28 gap-y-8 lg:grid">
+    <article class="bio max-w-sm md:max-w-md lg:max-w-lg w-11/12 text-center flex flex-col items-center mx-auto gap-y-8 lg:grid">
         <picture class="bio__image">
             <source srcset="@/assets/shared/desktop/image-best-gear.jpg" media="(min-width: 768px)">
             <source srcset="@/assets/shared/tablet/image-best-gear.jpg" media="(min-width: 480px)">
