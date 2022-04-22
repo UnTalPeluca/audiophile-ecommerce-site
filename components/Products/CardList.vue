@@ -7,8 +7,7 @@
             <picture class="lg:w-1/2 rounded-lg overflow-hidden">
                 <source :srcset="require('~/static/products/' + product.categoryImage.desktop)" media="(min-width: 768px)">
                 <source :srcset="require('~/static/products/' + product.categoryImage.tablet)" media="(min-width: 480px)">
-                <source :srcset="require('~/static/products/' + product.categoryImage.mobile)">
-                <img :src="require('~/static/products/' + product.categoryImage.mobile)" alt="" class="w-full">
+                <img :src="require('~/static/products/' + product.categoryImage.mobile)" :alt="product.name" class="w-full">
             </picture>
             <div class="card__content flex flex-col gap-6 lg:text-left lg:w-1/2">
                 <small v-if="product.new" class="card__new new-product text-orange text-opacity-50 text-sm font-normal text-base uppercase tracking-xl">NEW PRODUCT</small>

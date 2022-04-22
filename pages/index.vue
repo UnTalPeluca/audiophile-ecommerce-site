@@ -9,15 +9,14 @@
       </div>
     </div>
     <div class="pt-12 mx-auto max-w-sm md:max-w-md lg:max-w-lg w-11/12 flex flex-col gap-32">
-      <ProductsCategories />
-      <section class="featured flex flex-col gap-4 md:gap-8 text-center">
+      <ProductsCategories class="lg:p-4"/>
+      <section class="featured flex flex-col gap-4 md:gap-8 lg:gap-12 text-center">
         <!-- ZX9 SPEAKER  -->
         <article class="featured__item featured__item--grid-speaker bg-circles flex flex-col items-center gap-10 md:gap-20 bg-orange rounded-lg py-14 text-white lg:flex-row lg:overflow-hidden lg:py-10">
           <div class="item__image-container w-40 md:w-44 lg:w-full lg:relative lg:top-16 lg:w-auto lg:flex lg:pl-12">
             <picture class="item__image">
               <source srcset="@/assets/home/desktop/image-speaker-zx9.png" media="(min-width: 768px)">
               <source srcset="@/assets/home/tablet/image-speaker-zx9.png" media="(min-width: 480px)">
-              <source srcset="@/assets/home/mobile/image-speaker-zx9.png">
               <img src="@/assets/home/mobile/image-speaker-zx9.png" alt="ZX9 speaker product image" class="max-w-full lg:w-9/12 inline">
             </picture>
           </div>
@@ -42,7 +41,7 @@
         </article>
       </section>
     </div>
-    <Bio class="mb-24"/>
+    <Bio class="mt-6 mb-40"/>
   </div>
 </template>
 

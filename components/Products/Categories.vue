@@ -9,7 +9,8 @@
         >
             <img 
                 class="absolute bottom-14 lg:bottom-20"
-                :src="require('~/static/categories/' + category.image)" 
+                :src="require('~/static/categories/' + category.image)"
+                :alt="category.title"
             >
             <h2 class="font-bold text-center tracking-wide text-md lg:text-lg">{{ category.title }}</h2>
             <NuxtLink :to="'/category/' + category.title.toLowerCase()" class="text-gray-500 font-bold tracking-wide text-sm hover:text-orange">shop <span class="text-orange text-lg pl-2">></span></NuxtLink>

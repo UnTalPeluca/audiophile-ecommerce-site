@@ -1,7 +1,7 @@
 <template>
     <header 
         class="header absolute top-0 w-full border-b-2 border-white border-opacity-10 md:border-0 z-10"
-        :style="{ backgroundColor: transparent ? 'none' : 'black' }"
+        :style="{ backgroundColor: transparent ? '' : 'black' }"
         ref="ref-header"
     >
         <div class="header-container md:border-b-2 border-white border-opacity-10 py-8 max-w-sm md:max-w-md lg:max-w-lg mx-auto w-11/12 flex justify-between items-center">
