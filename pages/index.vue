@@ -1,5 +1,5 @@
 <template>
-  <div class="home gap-16 md:gap-32 bg-gray-50">
+  <div class="home gap-16 md:gap-20 bg-gray-50">
     <div class="hero w-full pt-20 text-white">
       <div class="hero__content py-32 md:py-36 text-center flex flex-col gap-8 justify-center max-w-sm md:max-w-md lg:max-w-lg w-11/12 mx-auto lg:text-left">
         <div class="new-product tracking-xl text-white text-opacity-50 text-base font-normal uppercase">New Product</div>
@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="pt-12 mx-auto max-w-sm md:max-w-md lg:max-w-lg w-11/12 flex flex-col gap-32">
-      <ProductsCategories class="lg:p-4"/>
+      <ProductsCategories class="lg:pt-12"/>
       <section class="featured flex flex-col gap-4 md:gap-8 lg:gap-12 text-center">
         <!-- ZX9 SPEAKER  -->
         <article class="featured__item featured__item--grid-speaker bg-circles flex flex-col items-center gap-10 md:gap-20 bg-orange rounded-lg py-14 text-white lg:flex-row lg:overflow-hidden lg:py-10">
@@ -41,7 +41,7 @@
         </article>
       </section>
     </div>
-    <Bio class="mt-6 mb-40"/>
+    <Bio class="mt-12 mb-36 md:mt-0 md:mb-24 lg:mt-16 lg:mb-44"/>
   </div>
 </template>
 

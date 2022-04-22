@@ -15,16 +15,16 @@
                     <ProductsCategories class="mx-auto max-w-sm md:max-w-md lg:max-w-lg"/>
                 </div>
                 <ul class="navbar__list hidden gap-x-8 lg:flex text-white font-bold text-sm">
-                    <li class="list__item hover:text-orange">
+                    <li class="list__item hover:text-orange tracking-widest">
                         <NuxtLink to="/">HOME</NuxtLink>
                     </li>
-                    <li class="list__item hover:text-orange">
+                    <li class="list__item hover:text-orange tracking-widest">
                         <NuxtLink to="/category/headphones">HEADPHONES</NuxtLink>
                     </li>
-                    <li class="list__item hover:text-orange">
+                    <li class="list__item hover:text-orange tracking-widest">
                         <NuxtLink to="/category/speakers">SPEAKERS</NuxtLink>
                     </li>
-                    <li class="list__item hover:text-orange">
+                    <li class="list__item hover:text-orange tracking-widest">
                         <NuxtLink to="/category/earphones">EARPHONES</NuxtLink>
                     </li>
                 </ul>
