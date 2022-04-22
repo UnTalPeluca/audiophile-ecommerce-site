@@ -43,6 +43,9 @@ module.exports = {
             },
             width: {
                 'input1/2': '49%'
+            },
+            letterSpacing: {
+                'xl': '.5em' 
             }
         }
     },

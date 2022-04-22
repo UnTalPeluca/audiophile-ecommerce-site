@@ -1,6 +1,6 @@
 <template>
     <div class="input-radio flex flex-col gap-4 lg:flex-wrap lg:flex-row lg:justify-between w-full relative">
-        <small class="absolute top-0 right-0 text-red-600 font-medium text-xs">{{ error }}</small>
+        <small class="absolute top-0 right-0 text-red-600 font-medium text-xs lg:-top-6">{{ error }}</small>
         <div class="font-bold text-xs">{{ title }}</div>
         <div class="flex flex-col gap-6 lg:w-input1/2">
             <label 

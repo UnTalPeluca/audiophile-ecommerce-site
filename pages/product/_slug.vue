@@ -11,7 +11,7 @@
                             <img :src="require('~/static/products/' + product.image.mobile)" alt="">
                         </picture>
                         <div class="summary__content flex flex-col gap-6 md:max-w-sm md:justify-center lg:w-1/2 lg:max-w-auto lg:mx-auto">
-                            <small v-if="product.new" class="card__new new-product text-orange text-xs font-normal uppercase tracking-widest">NEW PRODUCT</small>
+                            <small v-if="product.new" class="card__new new-product text-orange text-xs font-normal uppercase tracking-xl">NEW PRODUCT</small>
                             <h1 class="product__title text-2xl font-bold uppercase lg:text-5xl">{{ product.name }}</h1>
                             <p class="text-black text-opacity-50 font-medium text-md">{{ product.description }}</p>
                             <b class="text-black text-lg tracking-wider">{{ formatter.format(this.product.price) }}</b>

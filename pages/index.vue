@@ -2,7 +2,7 @@
   <div class="home gap-16 md:gap-32 bg-gray-50">
     <div class="hero w-full pt-20 text-white">
       <div class="hero__content py-32 md:py-36 text-center flex flex-col gap-8 justify-center max-w-sm md:max-w-md lg:max-w-lg w-11/12 mx-auto lg:text-left">
-        <div class="new-product tracking-widest text-white text-opacity-50 text-base font-normal uppercase">New Product</div>
+        <div class="new-product tracking-xl text-white text-opacity-50 text-base font-normal uppercase">New Product</div>
         <h2 class="text-4xl tracking-wider md:text-6xl font-bold uppercase lg:w-5/12">xx99 mark ii headphones</h2>
         <p class="text-white text-opacity-75 leading-6 text-md md:w-6/12 md:mx-auto md:pb-6 lg:mx-0 lg:w-4/12 lg:pb-0">Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
         <ButtonsSeeProduct to="/product/xx99-mark-two-headphones" class="bg-orange lg:mr-auto lg:ml-0 hover:bg-light-orange"/>

@@ -70,7 +70,7 @@ export default {
                     result += item.data?.price * item?.amount
                 })
             }
-            return this.formatter.format(result)
+            return this.formatter.format(result + 50)
         }
     },
 }
